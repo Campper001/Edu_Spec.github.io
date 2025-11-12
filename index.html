@@ -1,203 +1,278 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Edu_Spec</title>
-    <style>
-    table {
-        border-collapse: separate;
-        border-radius: 12px;
-        border: 2px solid #333;
-        overflow: hidden;
-        margin-top: 20px;
-        background-color: white;
-        table-layout: fixed; /* สำคัญ! ล็อกความกว้าง */
-        width: 95%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
-    td, th {
-        vertical-align: middle;
-        border: 2px solid #333;
-        padding: 6px 10px;
-        text-align: center;
-        font-size: 0.9rem;
-        font-weight: bold;
-    }
-
-
-    .delete-btn {
-        background: #ff4d4d;
-        color: white;
-        border: none;
-        padding: 4px 8px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-    @media (min-width: 480px) {
-        td, th {
-        vertical-align: middle;
-        border: 2px solid #333;
-        padding: 6px 10px;
-        text-align: center;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<title>Edu_Spec</title>
+<style>
+table {
+border-collapse: separate;
+border-radius: 12px;
+border: 2px solid #333;
+overflow: hidden;
+margin-top: 20px;
+background-color: white;
+table-layout: fixed; /* สําคัญ! ล็อกความกว้าง */
+width: 95%;
+max-width: 500px;
+margin-left: auto;
+margin-right: auto;
+}
+td, th {
+vertical-align: middle;
+border: 2px solid #333;
+padding: 6px 10px;
+text-align: center;
+font-size: 0.9rem;
+font-weight: bold;
+}
+.delete-btn {
+background: #ff4d4d;
+color: white;
+border: none;
+padding: 4px 8px;
+cursor: pointer;
+border-radius: 5px;
+}
+.save-btn {
+background: #0a7e07;
+color: white;
+border: none;
+padding: 4px 8px;
+cursor: pointer;
+border-radius: 5px;
+}
+@media (min-width: 480px) {
+td, th {
+vertical-align: middle;
+border: 2px solid #333;
+padding: 6px 10px;
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+}
+}
+</style>
 </head>
 <body class=" sm:max-w-screen-xl justify-center mx-auto bg-[#cee6cc]">
-    <div class="navbar bg-gradient-to-r from-red-500 to-red-800 p-5 rounded-b-lg">
-        <div class="menunav flex flex-1 justify-center px-2 items-center ">
-            <div class="flex items-stretch bg-transparent ">
-                <h1 class="rounded-btn text-white   pt-0  text-3xl sm:block  m-0 font-bold text-center">Edu_Spec</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container sm:max-w-screen-xl justify-center mx-auto bg-[#cee6cc] pb-10">
-        <div class="mt-5 ml-2 font-bold text-black ju">เลือกค่าแสง RGB</div>
-        <div class="BUTCON flex justify-around mt-5">
-            <div class="">
-                <button onclick="controlLED('red')" class="block p-12 sm:p-16  text-white rounded-full border-4 border-black bg-red-500  duration-300  hover:scale-90 lg:hover:scale-100 lg:active:scale-90" ></button>
-            </div>
-            <div>
-                <button onclick="controlLED('green')" class="block p-12 sm:p-16  text-white rounded-full border-4 border-black bg-green-500  duration-300  hover:scale-90 lg:hover:scale-100 lg:active:scale-90" ></button>
-            </div>
-            <div>
-                <button onclick="controlLED('blue')" class="block p-12 sm:p-16  text-white rounded-full border-4 border-black bg-blue-500  duration-300  hover:scale-90 lg:hover:scale-100 lg:active:scale-90" ></button>
-            </div>
-        </div>
-        <div class="inputrgb  justify-center mt-5">
-            <div class="justify-around flex ">
-                <input type="number" id="RInput" step="1" max="255" min="0" placeholder="255" class="peer w-auto rounded-md border border-gray-300 p-2 focus:outline-none focus:border-red-500 focus:text-red-500 focus:font-bold transition-colors duration-300 placeholder-gray-500 placeholder-opacity-65 placeholder:text-lg" />
-                <input type="number" id="GInput" step="1" max="255" min="0" placeholder="255" class="peer w-auto rounded-md border border-gray-300 p-2 focus:outline-none focus:border-red-500 focus:text-red-500 focus:font-bold transition-colors duration-300 placeholder-gray-500 placeholder-opacity-65 placeholder:text-lg" />
-                <input type="number" id="BInput" step="1" max="255" min="0" placeholder="255" class="peer w-auto rounded-md border border-gray-300 p-2 focus:outline-none focus:border-red-500 focus:text-red-500 focus:font-bold transition-colors duration-300 placeholder-gray-500 placeholder-opacity-65 placeholder:text-lg" />
-            </div>
-            <div class ="mt-2 flex justify-center ">
-                <button onclick="updatecol()" class="btn justify-center flex font-bold shadow-md  hover:scale-90 lg:hover:scale-100 lg:active:scale-90">change</button>
-            </div>
-        </div>
-        <div class="justify-center flex mt-2">
-                <button onclick="" class="resultcolor p-12  sm:p-16 text-white rounded-full border-4 border-black bg-white  duration-300" ></button>
-        </div>
-        <div class="flex justify-center mt-5">
-            <div class="show flex justify-around  mx-full">
-               <div class="flex items-center bg-red-500  rounded mx-5 text-lg font-bold w-24 drop-shadow-lg  rounded-xl text-center"><span class="label">R:</span><span id="R">0.12345</span></div>
-               <div class="flex items-center bg-green-500 rounded mx-5 text-lg font-bold w-24 drop-shadow-lg  rounded-xl text-center"><span class="label">G:</span><span id="G">0.12345</span></div>
-               <div class="flex items-center bg-blue-500  rounded mx-5 text-lg font-bold w-24 drop-shadow-lg  rounded-xl text-center"><span class="label">B:</span><span id="B">0.12345</span></div>
-            </div>
-        </div>
-        <div class="justify-center flex">
-            <table id="dataTable">
-              <thead>
-                <tr><th>NO</th><th>R</th><th>G</th><th>B</th><th>DEL</th></tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-        </div>
-        <div class="justify-center flex mt-2">
-            <div class ="mt-2 flex justify-center gap-5 ">
-                <div>
-                   <button onclick="rems()" class="btn justify-center flex font-bold shadow-md  hover:scale-90 lg:hover:scale-100 lg:active:scale-90">REMS</button>
-                </div>
-                <div>
-                     <button onclick="resetData()" class="btn justify-center flex font-bold shadow-md bg-red-500 hover:bg-red-600 border-black border-2 hover:scale-90 lg:hover:scale-100 lg:active:scale-90">RESET</button>
-                </div>
-            </div>
-        </div>
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-4 right-4 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eo_circle_green_arrow-up.svg/2048px-Eo_circle_green_arrow-up.svg.png" alt="Scroll to Top" class="w-6 h-6">
-        </button>
-    </div>
-    <script>
-    let data = [];
-    function controlLED(color) {
-        const result = document.querySelector('.resultcolor');
-        if (color === 'red') {
-            result.style.background = 'rgb(255, 0, 0)';
-        } else if (color === 'green') {
-            result.style.background = 'rgb(0, 255, 0)';
-        } else if (color === 'blue') {
-            result.style.background = 'rgb(0, 0, 255)';
-        }
-        fetch('/control?color=' + color)
-          .then(response => response.text())
-          .then(data => console.log(data))
-          .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to control LED');
-          });
-         
-    }
-    function updateSensorData() {
-        fetch('/GETRGB')
-          .then(r => r.json())
-          .then(data => {
-            document.getElementById('R').innerText = data.R;
-            document.getElementById('G').innerText = data.G;
-            document.getElementById('B').innerText = data.B;
-          });
-    }
-    function updatecol() {
-        let r = document.getElementById('RInput').value;
-        let g = document.getElementById('GInput').value;
-        let b = document.getElementById('BInput').value;
-        r = Math.min(255, Math.max(0, r));
-        g = Math.min(255, Math.max(0, g));
-        b = Math.min(255, Math.max(0, b));
-        document.querySelector('.resultcolor').style.background = `rgb(${r},${g},${b})`;
-        fetch(`/Button?r=${r}&g=${g}&b=${b}`)
-          .then(response => response.text())
-          .then(data => console.log(data))
-          .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to apply RGB values');
-          });
-    }
-    function rems() {
-      const rrem = document.getElementById('R').innerText;
-      const grem = document.getElementById('G').innerText;
-      const brem = document.getElementById('B').innerText;
-      if (rrem === '' || grem === '' || brem === '') return;
-      data.push({ r: rrem, g: grem, b: brem });
-      renderTable();
-    }
-    function deleteRow(i) {
-        data.splice(i, 1);
-        renderTable();
-    }
-
-
-    function renderTable() {
-      const tbody = document.querySelector('#dataTable tbody');
-      tbody.innerHTML = '';
-      data.forEach((item, i) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${i + 1}</td>
-          <td>${item.r}</td>
-          <td>${item.g}</td>
-          <td>${item.b}</td>
-          <td><button class="delete-btn" onclick="deleteRow(${i})">DEL</button></td>`;
-        tbody.appendChild(tr);
-      });
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-
-
-    function resetData() {
-        data = [];
-        renderTable();
-    }
- 
-    setInterval(updateSensorData, 1000);
-    window.onload = updateSensorData;
-    </script>
+<div class="navbar bg-gradient-to-r from-red-500 to-red-800 p-5
+rounded-b-lg">
+<div class="menunav flex flex-1 justify-center px-2 items-center
+">
+<div class="flex items-stretch bg-transparent ">
+<h1 class="rounded-btn text-white pt-0 text-3xl
+sm:block m-0 font-bold text-center">Edu_Spec</h1>
+</div>
+</div>
+</div>
+<div class="container sm:max-w-screen-xl justify-center mx-auto
+bg-[#cee6cc] pb-10">
+<div class="mt-5 ml-2 font-bold text-black ju">เลือกค่าแสง RGB</div>
+<div class="BUTCON flex justify-around mt-5">
+<div class="">
+<button onclick="controlLED('red')" class="block p-12
+sm:p-16 text-white rounded-full border-4 border-black bg-red-500
+duration-300 hover:scale-90 lg:hover:scale-100 lg:active:scale-90"
+></button>
+</div>
+<div>
+<button onclick="controlLED('green')" class="block p-12
+sm:p-16 text-white rounded-full border-4 border-black bg-green-500
+duration-300 hover:scale-90 lg:hover:scale-100 lg:active:scale-90"
+></button>
+</div>
+<div>
+<button onclick="controlLED('blue')" class="block p-12
+sm:p-16 text-white rounded-full border-4 border-black bg-blue-500
+duration-300 hover:scale-90 lg:hover:scale-100 lg:active:scale-90"
+></button>
+</div>
+</div>
+<div class="inputrgb justify-center mt-5">
+<div class="justify-around flex ">
+<input type="number" id="RInput" step="1" max="255"
+min="0" placeholder="255" class="peer w-auto rounded-md border
+border-gray-300 p-2 focus:outline-none focus:border-red-500
+focus:text-red-500 focus:font-bold transition-colors duration-300
+placeholder-gray-500 placeholder-opacity-65 placeholder:text-lg" />
+<input type="number" id="GInput" step="1" max="255"
+min="0" placeholder="255" class="peer w-auto rounded-md border
+border-gray-300 p-2 focus:outline-none focus:border-red-500
+focus:text-red-500 focus:font-bold transition-colors duration-300
+placeholder-gray-500 placeholder-opacity-65 placeholder:text-lg" />
+<input type="number" id="BInput" step="1" max="255"
+min="0" placeholder="255" class="peer w-auto rounded-md border
+border-gray-300 p-2 focus:outline-none focus:border-red-500
+focus:text-red-500 focus:font-bold transition-colors duration-300
+placeholder-gray-500 placeholder-opacity-65 placeholder:text-lg" />
+</div>
+<div class ="mt-2 flex justify-center ">
+<button onclick="updatecol()" class="btn justify-center
+flex font-bold shadow-md hover:scale-90 lg:hover:scale-100
+lg:active:scale-90">change</button>
+</div>
+</div>
+<div class="justify-center flex mt-2">
+<button onclick="" class="resultcolor p-12 sm:p-16
+text-white rounded-full border-4 border-black bg-white duration-300"
+></button>
+</div>
+<div class="flex justify-center mt-5">
+<div class="show flex justify-around mx-full">
+<div class="flex items-center bg-red-500 rounded mx-5
+text-md font-bold w-24 drop-shadow-lg text-white rounded-lg
+text-center"><span class="label">R:</span><span id="R"></span></div>
+<div class="flex items-center bg-green-500 rounded mx-5
+text-md font-bold w-24 drop-shadow-lg text-white rounded-lg
+text-center"><span class="label">G:</span><span id="G"></span></div>
+<div class="flex items-center bg-blue-500 rounded mx-5
+text-md font-bold w-24 drop-shadow-lg text-white rounded-lg
+text-center"><span class="label">B:</span><span id="B"></span></div>
+</div>
+</div>
+<div class="justify-center flex">
+<table id="dataTable">
+<thead>
+<tr><th>No.</th><th>Abs_R</th><th>Abs_G</th><th>Abs_B</th><th></th></tr>
+<tr>
+<th>BLANK</th>
+<th id="RI"></th>
+<th id="GI"></th>
+<th id="BI"></th>
+<th><button class="save-btn"
+onclick="REMI()">SAVE</button></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<div class="justify-center flex mt-2">
+<div class ="mt-2 flex justify-center gap-5 ">
+<div>
+<button onclick="rems()" class="btn justify-center
+bg-green-600 flex font-bold shadow-md border-0 text-black hover:scale-90
+lg:hover:scale-100 lg:active:scale-90">Measure</button>
+</div>
+<div>
+<button onclick="resetData()" class="btn
+justify-center flex font-bold shadow-md bg-black hover:opacity-90
+border-black border-2 hover:scale-90 lg:hover:scale-100
+lg:active:scale-90">RESET</button>
+</div>
+</div>
+</div>
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+class="fixed bottom-4 right-4 bg-orange-500 text-white p-3 rounded-full
+shadow-lg hover:bg-orange-600 transition">
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eo_circle_g
+reen_arrow-up.svg/2048px-Eo_circle_green_arrow-up.svg.png" alt="Scroll to
+Top" class="w-6 h-6">
+</button>
+</div>
+<script>
+let data = [];
+let rrem = 0, grem = 0, brem = 0;
+function controlLED(color) {
+const result = document.querySelector('.resultcolor');
+if (color === 'red') {
+result.style.background = 'rgb(255, 0, 0)';
+} else if (color === 'green') {
+result.style.background = 'rgb(0, 255, 0)';
+} else if (color === 'blue') {
+result.style.background = 'rgb(0, 0, 255)';
+}
+fetch('/control?color=' + color)
+.then(response => response.text())
+.then(data => console.log(data))
+.catch(error => {
+console.error('Error:', error);
+alert('Failed to control LED');
+});
+}
+function updateSensorData() {
+fetch('/GETRGB')
+.then(r => r.json())
+.then(data => {
+document.getElementById('R').innerText
+=Math.log10(RRT/data.R).toFixed(5);
+document.getElementById('G').innerText
+=Math.log10(GGT/data.G).toFixed(5);
+document.getElementById('B').innerText
+=Math.log10(BBT/data.B).toFixed(5);
+});
+}
+function updatecol() {
+let r = document.getElementById('RInput').value;
+let g = document.getElementById('GInput').value;
+let b = document.getElementById('BInput').value;
+r = Math.min(255, Math.max(0, r));
+g = Math.min(255, Math.max(0, g));
+b = Math.min(255, Math.max(0, b));
+document.querySelector('.resultcolor').style.background =
+`rgb(${r},${g},${b})`;
+fetch(`/Button?r=${r}&g=${g}&b=${b}`)
+.then(response => response.text())
+.then(data => console.log(data))
+.catch(error => {
+console.error('Error:', error);
+alert('Failed to apply RGB values');
+});
+}
+function rems() {
+const rrem = document.getElementById('R').innerText;
+const grem = document.getElementById('G').innerText;
+const brem = document.getElementById('B').innerText;
+if (rrem === '' || grem === '' || brem === '') return;
+data.push({ r: rrem, g: grem, b: brem });
+renderTable();
+}
+function deleteRow(i) {
+data.splice(i, 1);
+renderTable();
+}
+function renderTable() {
+const tbody = document.querySelector('#dataTable tbody');
+tbody.innerHTML = '';
+data.forEach((item, i) => {
+const tr = document.createElement('tr');
+tr.innerHTML =
+`
+<td>${i + 1}</td>
+<td>${item.r}</td>
+<td>${item.g}</td>
+<td>${item.b}</td>
+<td><button class="delete-btn"
+onclick="deleteRow(${i})">DEL</button></td>`;
+tbody.appendChild(tr);
+});
+'smooth' });
+window.scrollTo({ top: document.body.scrollHeight, behavior:
+}
+function resetData() {
+data = [];
+renderTable();
+}
+function REMI() {
+fetch('/GETRGB')
+.then(r => r.json())
+.then(data => {
+RRT = data.R;
+GGT = data.G;
+BBT = data.B;
+document.getElementById('RI').innerText = Math.log10(RRT /
+data.R).toFixed(5);
+document.getElementById('GI').innerText = Math.log10(GGT /
+data.G).toFixed(5);
+document.getElementById('BI').innerText = Math.log10(BBT /
+data.B).toFixed(5);
+});
+}
+setInterval(updateSensorData, 1000);
+window.onload = updateSensorData;
+</script>
 </body>
 </html>
-
